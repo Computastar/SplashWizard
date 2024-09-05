@@ -3,11 +3,11 @@
 SplashWizard is a PowerShell script designed to display a customizable splash screen during script execution. It includes features such as topmost window display, cursor hiding, and animated GIF support.
 
 # Features
-Display a splash screen with customizable header, body, and status text.  
-Option to make the splash screen topmost and lock out user input.  
-Option to hide the cursor.  
-Support for animated GIFs.  
-Ability to disable user input while the splash screen is active.  
+* Display a splash screen with customizable header, body, and status text.  
+* Option to make the splash screen topmost.
+* Option to hide the cursor.  
+* Support for animated GIFs.  
+* Ability to disable user input while the splash screen is active.  
 # Prerequisites
 PowerShell 5.0 or later.  
 .NET Framework 4.5 or later.   
@@ -21,59 +21,56 @@ To display the splash screen with default text:
 
 .\SplashWizard.ps1
 
-Customizing Text
+# Initialising the SplashWizard
 You can customize the header, body, and status text:
 
-.\SplashWizard.ps1 -HeaderText "Welcome!" -BodyText "Loading resources..." -StatusText "Please wait..."
+Start-SplashWizard -HeaderText "Welcome!" -BodyText "Loading resources..." -StatusText "Please wait..."
 
-Topmost Window
-To make the splash screen always on top:
+### Topmost Window  
+To make the splash screen always on top, if run in Administrator context it will also disable user input:
 
-.\SplashWizard.ps1 -TopMost
+Start-SplashWizard -TopMost
 
-Hide Cursor
+### Hide Cursor  
 To hide the cursor while the splash screen is displayed:
 
-.\SplashWizard.ps1 -NoCursor
+Start-SplashWizard -NoCursor
 
-Full Example
+### Full Example
 A full example with all options:
 
-.\SplashWizard.ps1 -HeaderText "Welcome!" -BodyText "Loading resources..." -StatusText "Please wait..." -TopMost -NoCursor
+Start-SplashWizard -HeaderText "Welcome!" -BodyText "Loading resources..." -StatusText "Please wait..." -TopMost -NoCursor
 
-Functions
-IsAdministrator
-Checks if the current user has administrator privileges.
-
-Disable-UserInput
-Disables or enables user input.
-
-Start-SplashScreen
+### Functions
+**Start-SplashWizard -HeaderText "Welcome!" -BodyText "Loading resources..." -StatusText "Please wait..." -TopMost -NoCursor**  
 Starts the splash screen with the specified parameters.
+ 
 
-Update-SplashScreen
+**Update-SplashWizard -HeaderText "Updating!" -BodyText "Updating somethings..." -StatusText "Please wait..."**  
 Updates the text on the splash screen.
 
-Close-SplashScreen
+**Close-SplashWizard  -HeaderText "Updating!" -BodyText "Updating somethings..." -StatusText "Please wait... -Countdown 10"**  
 Closes the splash screen, optionally with a countdown.
 
 Example Script
-Here’s an example script that uses SplashWizard:
+Here’s an example script that uses SplashWizard: 
 
-# Load the splash screen
-.\SplashWizard.ps1 -HeaderText "Starting Up" -BodyText "Initializing components..." -StatusText "Loading..." -TopMost -NoCursor
+        .\SplashWizard.ps1
 
-# Simulate some work
-Start-Sleep -Seconds 10
-
-# Update the splash screen
-Update-SplashScreen -HeaderText "Almost There" -BodyText "Finalizing setup..." -StatusText "Just a moment..."
-
-# Simulate more work
-Start-Sleep -Seconds 5
-
-# Close the splash screen
-Close-SplashScreen -HeaderText "Done!" -BodyText "Setup complete." -StatusText "Ready to go!" -Countdown 3
+        # Load the splash screen
+        Start-SplashWizard -HeaderText "Starting Up" -BodyText "Initializing components..." -StatusText "Loading..." -TopMost -NoCursor
+        
+        # Simulate some work
+        Start-Sleep -Seconds 10
+        
+        # Update the splash screen
+        Update-SplashWizard -HeaderText "Almost There" -BodyText "Finalizing setup..." -StatusText "Just a moment..."
+        
+        # Simulate more work
+        Start-Sleep -Seconds 5
+        
+        # Close the splash screen
+        Close-SplashWizard -HeaderText "Done!" -BodyText "Setup complete." -StatusText "Ready to go!" -Countdown 3
 
 License
 This project is licensed under the MIT License.
