@@ -12,9 +12,10 @@ SplashWizard is a PowerShell script designed to display a customizable splash sc
 PowerShell 5.0 or later.  
 .NET Framework 4.5 or later.   
 WpfAnimatedGif.dll (included in the script directory) Credit to https://github.com/XamlAnimatedGif/WpfAnimatedGif  
+The Spinner.gif file.  
 # Installation
 Download the SplashWizard.ps1 script and place it in your desired directory.
-Ensure WpfAnimatedGif.dll is in the same directory as the script.
+Ensure WpfAnimatedGif.dll and spinner.gif are in the same directory as the script.
 Usage
 Basic Usage
 To display the splash screen with default text:
