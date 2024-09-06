@@ -1,4 +1,4 @@
-﻿# Load the required assembly
+# Load the required assembly
 [System.Reflection.Assembly]::LoadFrom("$PSScriptRoot\WpfAnimatedGif.dll") | Out-Null
 # Credits to - https://github.com/XamlAnimatedGif/WpfAnimatedGif
 
@@ -39,8 +39,8 @@ function Disable-UserInput {
     }
 }
 
-# Function to start the splash screen
-function Start-SplashScreen {
+# Function to start the splashWizard
+function Start-SplashWizard {
     [CmdletBinding()]
     param(
         [switch]$TopMost,
@@ -68,7 +68,7 @@ function Start-SplashScreen {
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:sys="clr-namespace:System;assembly=mscorlib"
   xmlns:gif="http://wpfanimatedgif.codeplex.com"
-  Title="Splash Screen"
+  Title="SplashWizard"
   Cursor="Wait"
   Width="400" Height="200"
   WindowStartupLocation="CenterScreen"
@@ -132,13 +132,13 @@ function Start-SplashScreen {
         [WpfAnimatedGif.ImageBehavior]::SetAnimatedSource($syncHash.ImageView, [System.Windows.Media.Imaging.BitmapImage]::new([System.Uri]::new($gifPath)))
     }, "Normal")
 
-    Update-SplashScreen -HeaderText $HeaderText -BodyText $BodyText -StatusText $StatusText
+    Update-SplashWizard -HeaderText $HeaderText -BodyText $BodyText -StatusText $StatusText
 
     Start-Sleep 5
 }
 
 # Function to update the splash screen text blocks
-function Update-SplashScreen {
+function Update-SplashWizard {
     param (
         [string]$HeaderText,
         [string]$BodyText,
@@ -154,7 +154,7 @@ function Update-SplashScreen {
 }
 
 # Function to close the splash screen
-function Close-SplashScreen {
+function Close-SplashWizard {
     param (
         [string]$HeaderText,
         [string]$BodyText,
