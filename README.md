@@ -24,19 +24,19 @@ To display the splash screen with default text:
 # Initialising the SplashWizard
 You can customize the header, body, and status text:
 
-Start-SplashWizard -HeaderText "Welcome!" -BodyText "Loading resources..." -StatusText "Please wait..."
+#### Start-SplashWizard -HeaderText "Welcome!" -BodyText "Loading resources..." -StatusText "Please wait..."
 
-### Topmost Window  
+**Topmost Window**  
 To make the splash screen always on top, if run in Administrator context it will also disable user input:
 
 Start-SplashWizard -TopMost
 
-### Hide Cursor  
+**Hide Cursor**  
 To hide the cursor while the splash screen is displayed:
 
 Start-SplashWizard -NoCursor
 
-### Full Example
+**Full Example**
 A full example with all options:
 
 Start-SplashWizard -HeaderText "Welcome!" -BodyText "Loading resources..." -StatusText "Please wait..." -TopMost -NoCursor
